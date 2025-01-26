@@ -18,17 +18,32 @@ conda activate graphrag
 
 # Install GraphRAG
 pip install graphrag
+
+# Create GraphRAG Directory
+mkdir -p ./GraphRAG/input
 ```
 
 ### Data Preparation
 
-**Step 1:** create the validation dataset from the train dataset. This script will extract the same records from valid_data_dbpedia_raw.jsonl from train_data.jsonl and create a 
-First make sure that the three files: test_data
+**Step 1:** create the validation dataset from the train dataset. This script will extract the same records from valid_data_dbpedia_raw.jsonl from train_data.jsonl and create a valid_data.jsonl file.
+
 ```bash
-cd GraphRAG/data
-python 
+cd data/redial
+python create_validation_set.py
 ```
 
+**Step 2:** Format the train, test, vaild data to include only the conversation data and to convert jsonl format to txt format for input to GraphRAG
+```bash
+python format_raw_data_for_graphrag.py
+cp graphrag_data.txt ./GraphRAG/input/
+```
+**Step 3:** Running GraphRAG Indexer
+```bash
+graphrag index --root ./GraphRAG/
+
+# alternatively you can use nohup to run in the background since this is a lengthy process
+nohup graphrag index --root ./GraphRAG/ > graphrag_full_run.log 2>&1 & 
+```
 
 ## Part 2: UniCRS
 
