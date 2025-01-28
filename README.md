@@ -42,13 +42,13 @@ cp graphrag_data.txt ./GraphRAG/input/
 graphrag index --root ./GraphRAG/
 
 # alternatively you can use nohup to run in the background since this is a lengthy process
-nohup graphrag index --root ./GraphRAG/ > graphrag_full_run.log 2>&1 & 
+nohup graphrag index --root ./GraphRAG/ > graphrag_full_run.log 2>&1 &
+ps -ef | grep graphrag # to check if te indexing process is running
 ```
 
 ## Part 2: UniCRS
 
-### Data processing
-
+**Step 1:** Data processing
 ```bash
 cd data
 python dbpedia/extract_kg.py
