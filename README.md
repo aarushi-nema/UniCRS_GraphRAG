@@ -21,6 +21,9 @@ pip install graphrag
 
 # Create GraphRAG Directory
 mkdir -p ./GraphRAG/input
+
+# Initialize GraphRAG
+graphrag init --root ./GraphRAG 
 ```
 
 ### Data Preparation
@@ -50,42 +53,21 @@ ps -ef | grep graphrag # to check if te indexing process is running
 
 **Step 1:** Data processing
 ```bash
-cd data
-python dbpedia/extract_kg.py
-
-# redial
-python redial/extract_subkg.py
-python redial/remove_entity.py
+conda activate torch113
+python /home/Nema/UniCRS_GraphRAG/UniCRS/data/redial/format_graphrag_output.py
 ```
 
-### Prompt Pre-training
+**Step 2:** Prompt Pre-training
 
 ```bash
-cp -r data/redial src/data/
-cd src
-python data/redial/process.py
-accelerate launch train_pre.py \
-    --dataset redial \  # [redial, inspired]
-    --tokenizer microsoft/DialoGPT-small \
-    --model microsoft/DialoGPT-small \
-    --text_tokenizer roberta-base \
-    --text_encoder roberta-base \
-    --num_train_epochs 5 \
-    --gradient_accumulation_steps 1 \
-    --per_device_train_batch_size 64 \
-    --per_device_eval_batch_size 128 \
-    --num_warmup_steps 1389 \  # 168 for inspired
-    --max_length 200 \
-    --prompt_max_length 200 \
-    --entity_max_length 32 \
-    --learning_rate 5e-4 \  # 6e-4 for inspired
-    --output_dir /path/to/pre-trained prompt \  # set your own save path
-    --use_wandb \  # if you do not want to use wandb, comment it and the lines below
-    --project crs-prompt-pre \  # wandb project name
-    --name xxx  # wandb experiment name
+cp /home/Nema/UniCRS_GraphRAG/UniCRS/data/redial /home/Nema/UniCRS_GraphRAG/UniCRS/src/data/redial
+nohup bash -c "CUDA_VISIBLE_DEVICES=0 accelerate launch train_pre.py --dataset redial --tokenizer microsoft/DialoGPT-small --model microsoft/DialoGPT-small --num_train_epochs 5 --gradient_accumulation_steps 1 --per_device_train_batch_size 64 --per_device_eval_batch_size 128 --num_warmup_steps 1389 --max_length 256 --output_dir /home/Nema/UniCRS_GraphRAG/UniCRS/src/pretrained_prompt --mixed_precision fp16 > train_pre.log 2>&1 &"
+
+# to check status
+ps -ef | grep train_pre.py
 ```
 
-### Conversation Task Training and Inference
+**Step 3:** Conversation Task Training and Inference
 
 ```bash
 # train
