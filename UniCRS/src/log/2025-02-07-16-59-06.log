@@ -1,0 +1,39 @@
+2025-02-07 16:59:06.720 | INFO     | __main__:<module>:90 - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+2025-02-07 16:59:06.721 | INFO     | __main__:<module>:91 - {'seed': 42, 'output_dir': '/home/Nema/UniCRS_GraphRAG/UniCRS/src/recommendation_prompt', 'debug': False, 'dataset': 'redial_gen', 'shot': 1, 'use_resp': False, 'context_max_length': 200, 'prompt_max_length': 200, 'entity_max_length': 32, 'num_workers': 0, 'tokenizer': 'microsoft/DialoGPT-small', 'text_tokenizer': None, 'model': 'microsoft/DialoGPT-small', 'text_encoder': None, 'num_bases': 8, 'n_prefix_rec': 10, 'prompt_encoder': '/home/Nema/UniCRS_GraphRAG/UniCRS/src/pretrained_prompt/best', 'num_train_epochs': 5, 'max_train_steps': None, 'per_device_train_batch_size': 64, 'per_device_eval_batch_size': 64, 'gradient_accumulation_steps': 1, 'learning_rate': 0.0001, 'weight_decay': 0.01, 'max_grad_norm': None, 'num_warmup_steps': 530, 'mixed_precision': 'no', 'use_wandb': False, 'entity': None, 'project': None, 'name': None, 'log_all': False}
+2025-02-07 17:00:17.766 | INFO     | __main__:<module>:221 - ***** Running training *****
+2025-02-07 17:00:17.766 | INFO     | __main__:<module>:222 -   Num examples = 182293
+2025-02-07 17:00:17.766 | INFO     | __main__:<module>:223 -   Num Epochs = 5
+2025-02-07 17:00:17.767 | INFO     | __main__:<module>:224 -   Instantaneous batch size per device = 64
+2025-02-07 17:00:17.767 | INFO     | __main__:<module>:225 -   Total train batch size (w. parallel, distributed & accumulation) = 64
+2025-02-07 17:00:17.767 | INFO     | __main__:<module>:226 -   Gradient Accumulation steps = 1
+2025-02-07 17:00:17.767 | INFO     | __main__:<module>:227 -   Total optimization steps = 14245
+2025-02-07 17:23:20.824 | INFO     | __main__:<module>:276 - epoch 0 train loss 5.947808661516109
+2025-02-07 17:25:30.171 | INFO     | __main__:<module>:312 - {'valid/recall@1': 0.0867490456098051, 'valid/recall@10': 0.2656218605585694, 'valid/recall@50': 0.4470062286517983, 'valid/ndcg@1': 0.0867490456098051, 'valid/ndcg@10': 0.16535819407948438, 'valid/ndcg@50': 0.20555379943050534, 'valid/mrr@1': 0.0867490456098051, 'valid/mrr@10': 0.13467445856408228, 'valid/mrr@50': 0.1433469570375289, 'valid/loss': 5.815012337305607, 'epoch': 0}
+2025-02-07 17:25:30.401 | INFO     | __main__:<module>:320 - new best model with loss
+2025-02-07 17:28:13.360 | INFO     | __main__:<module>:354 - {'test/recall@1': 0.06934900901616554, 'test/recall@10': 0.2486793502005799, 'test/recall@50': 0.4324184771815546, 'test/ndcg@1': 0.06934900901616554, 'test/ndcg@10': 0.14637457620360347, 'test/ndcg@50': 0.18726133816330381, 'test/mrr@1': 0.06934900901616554, 'test/mrr@10': 0.11522290348395857, 'test/mrr@50': 0.12411837084069786, 'test/loss': 5.843705281388336, 'epoch': 0}
+2025-02-07 17:51:15.963 | INFO     | __main__:<module>:276 - epoch 1 train loss 5.58672184005207
+2025-02-07 17:53:24.160 | INFO     | __main__:<module>:312 - {'valid/recall@1': 0.08775366686759092, 'valid/recall@10': 0.2804400241109102, 'valid/recall@50': 0.4646373317259393, 'valid/ndcg@1': 0.08775366686759092, 'valid/ndcg@10': 0.17311114279984804, 'valid/ndcg@50': 0.21392548790844132, 'valid/mrr@1': 0.08775366686759092, 'valid/mrr@10': 0.14016298704509494, 'valid/mrr@50': 0.14896566196692285, 'valid/loss': 5.695647352781052, 'epoch': 1}
+2025-02-07 17:53:24.508 | INFO     | __main__:<module>:320 - new best model with loss
+2025-02-07 17:56:06.313 | INFO     | __main__:<module>:354 - {'test/recall@1': 0.06962704055288557, 'test/recall@10': 0.2609524566072209, 'test/recall@50': 0.4447710211701156, 'test/ndcg@1': 0.06962704055288557, 'test/ndcg@10': 0.15382266405412182, 'test/ndcg@50': 0.19477470601888627, 'test/mrr@1': 0.06962704055288557, 'test/mrr@10': 0.12095161180715534, 'test/mrr@50': 0.1298833846212565, 'test/loss': 5.778932431022528, 'epoch': 1}
+2025-02-07 18:19:08.759 | INFO     | __main__:<module>:276 - epoch 2 train loss 5.345435163438341
+2025-02-07 18:21:16.438 | INFO     | __main__:<module>:312 - {'valid/recall@1': 0.08162547719509745, 'valid/recall@10': 0.28335342575848904, 'valid/recall@50': 0.4695097448262005, 'valid/ndcg@1': 0.08162547719509745, 'valid/ndcg@10': 0.17108029209755501, 'valid/ndcg@50': 0.21241610333314498, 'valid/mrr@1': 0.08162547719509745, 'valid/mrr@10': 0.13659642215519516, 'valid/mrr@50': 0.1455431680064233, 'valid/loss': 5.675242347595019, 'epoch': 2}
+2025-02-07 18:21:16.738 | INFO     | __main__:<module>:320 - new best model with loss
+2025-02-07 18:23:58.522 | INFO     | __main__:<module>:354 - {'test/recall@1': 0.06831632045120546, 'test/recall@10': 0.26067442507050087, 'test/recall@50': 0.4473130237915558, 'test/ndcg@1': 0.06831632045120546, 'test/ndcg@10': 0.15204301785545835, 'test/ndcg@50': 0.1934688344024308, 'test/mrr@1': 0.06831632045120546, 'test/mrr@10': 0.11881917042960838, 'test/mrr@50': 0.1277777941548834, 'test/loss': 5.770846947800689, 'epoch': 2}
+2025-02-07 18:47:01.329 | INFO     | __main__:<module>:276 - epoch 3 train loss 5.121067027202109
+2025-02-07 18:49:09.604 | INFO     | __main__:<module>:312 - {'valid/recall@1': 0.08489049628290135, 'valid/recall@10': 0.28455897126783203, 'valid/recall@50': 0.4726240707253366, 'valid/ndcg@1': 0.08489049628290135, 'valid/ndcg@10': 0.17405479021859932, 'valid/ndcg@50': 0.215795981828913, 'valid/mrr@1': 0.08489049628290135, 'valid/mrr@10': 0.13999808052588783, 'valid/mrr@50': 0.14903020446789608, 'valid/loss': 5.6873908669520645, 'epoch': 3}
+2025-02-07 18:51:51.338 | INFO     | __main__:<module>:354 - {'test/recall@1': 0.06779997616872542, 'test/recall@10': 0.26420939746594113, 'test/recall@50': 0.45013305794971603, 'test/ndcg@1': 0.06779997616872542, 'test/ndcg@10': 0.15409521680253804, 'test/ndcg@50': 0.1954540951624995, 'test/mrr@1': 0.06779997616872542, 'test/mrr@10': 0.12033690145643841, 'test/mrr@50': 0.1293230936687006, 'test/loss': 5.8070337941803905, 'epoch': 3}
+2025-02-07 19:14:54.106 | INFO     | __main__:<module>:276 - epoch 4 train loss 4.90818114245553
+2025-02-07 19:17:02.105 | INFO     | __main__:<module>:312 - {'valid/recall@1': 0.08433795459111915, 'valid/recall@10': 0.28124372111713886, 'valid/recall@50': 0.46755073337351816, 'valid/ndcg@1': 0.08433795459111915, 'valid/ndcg@10': 0.1725515005745178, 'valid/ndcg@50': 0.21401133201005876, 'valid/mrr@1': 0.08433795459111915, 'valid/mrr@10': 0.13900936495378743, 'valid/mrr@50': 0.1480332478620404, 'valid/loss': 5.746611778552715, 'epoch': 4}
+2025-02-07 19:19:44.825 | INFO     | __main__:<module>:354 - {'test/recall@1': 0.06776025737776542, 'test/recall@10': 0.2612304881439409, 'test/recall@50': 0.44655836676331573, 'test/ndcg@1': 0.06776025737776542, 'test/ndcg@10': 0.1527822857915955, 'test/ndcg@50': 0.19396132413760575, 'test/mrr@1': 0.06776025737776542, 'test/mrr@10': 0.11952898866649124, 'test/mrr@50': 0.1284621966322189, 'test/loss': 5.886494957250992, 'epoch': 4}
+2025-02-07 19:19:45.044 | INFO     | __main__:<module>:361 - save final model
+
+'test/recall@1': 0.06776025737776542, 
+'test/recall@10': 0.2612304881439409, 
+'test/recall@50': 0.44655836676331573

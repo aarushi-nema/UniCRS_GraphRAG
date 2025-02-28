@@ -1,0 +1,1239 @@
+2025-02-07 15:26:28.148 | INFO     | __main__:<module>:89 - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+2025-02-07 15:26:28.148 | INFO     | __main__:<module>:90 - {'seed': 42, 'output_dir': None, 'debug': False, 'dataset': 'redial', 'split': 'valid', 'num_workers': 0, 'context_max_length': 200, 'resp_max_length': 183, 'entity_max_length': 32, 'prompt_max_length': 200, 'tokenizer': 'microsoft/DialoGPT-small', 'ignore_pad_token_for_loss': False, 'text_tokenizer': None, 'model': 'microsoft/DialoGPT-small', 'max_gen_len': 50, 'text_encoder': None, 'prompt_encoder': '/home/Nema/UniCRS_GraphRAG/UniCRS/src/conversation_prompt/best', 'n_prefix_conv': 20, 'num_bases': 8, 'num_train_epochs': 10, 'max_train_steps': None, 'per_device_train_batch_size': 4, 'per_device_eval_batch_size': 64, 'gradient_accumulation_steps': 1, 'learning_rate': 1e-05, 'weight_decay': 0.01, 'max_grad_norm': None, 'num_warmup_steps': 10000, 'mixed_precision': 'no', 'use_wandb': False, 'entity': None, 'project': None, 'name': None, 'log_all': False}
+loading file https://huggingface.co/microsoft/DialoGPT-small/resolve/main/vocab.json from cache at /home/Nema/.cache/huggingface/transformers/3cf340c89a43b5e6f31c4cd609fc2fc92f3d7aafdf6c8987e2ea9e02cb78b4e2.c7ed1f96aac49e745788faa77ba0a26a392643a50bb388b9c04ff469e555241f
+loading file https://huggingface.co/microsoft/DialoGPT-small/resolve/main/merges.txt from cache at /home/Nema/.cache/huggingface/transformers/4e3f74e7c741909c4d1b48a23febe75c1be66a20c2b98cf7db4b8b10f12dc10c.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b
+loading file https://huggingface.co/microsoft/DialoGPT-small/resolve/main/tokenizer.json from cache at None
+loading file https://huggingface.co/microsoft/DialoGPT-small/resolve/main/added_tokens.json from cache at None
+loading file https://huggingface.co/microsoft/DialoGPT-small/resolve/main/special_tokens_map.json from cache at None
+loading file https://huggingface.co/microsoft/DialoGPT-small/resolve/main/tokenizer_config.json from cache at /home/Nema/.cache/huggingface/transformers/5f8cf488e0bdda2e393e798f478673a4d26c1386082a1a05e42269f3ecc89f50.ec724204e3f617ce480e49623639f0c4ff43333f0d359f3024e7bc4a95dc1e45
+Assigning <pad> to the pad_token key of the tokenizer
+Assigning ['<movie>'] to the additional_special_tokens key of the tokenizer
+loading configuration file https://huggingface.co/microsoft/DialoGPT-small/resolve/main/config.json from cache at /home/Nema/.cache/huggingface/transformers/0cbdd50f204f3ddbaa452e976340a5725f0b5ddb201704058c87e14d9679e070.e6898db50ba3aa698f0f652e876a1e4bd813321dea3e22b776f9a3c39d36aaab
+Model config GPT2Config {
+  "activation_function": "gelu_new",
+  "architectures": [
+    "GPT2LMHeadModel"
+  ],
+  "attn_pdrop": 0.1,
+  "bos_token_id": 50256,
+  "embd_pdrop": 0.1,
+  "eos_token_id": 50256,
+  "initializer_range": 0.02,
+  "layer_norm_epsilon": 1e-05,
+  "model_type": "gpt2",
+  "n_ctx": 1024,
+  "n_embd": 768,
+  "n_head": 12,
+  "n_inner": null,
+  "n_layer": 12,
+  "n_positions": 1024,
+  "reorder_and_upcast_attn": false,
+  "resid_pdrop": 0.1,
+  "scale_attn_by_inverse_layer_idx": false,
+  "scale_attn_weights": true,
+  "summary_activation": null,
+  "summary_first_dropout": 0.1,
+  "summary_proj_to_labels": true,
+  "summary_type": "cls_index",
+  "summary_use_proj": true,
+  "task_specific_params": {
+    "conversational": {
+      "max_length": 1000
+    }
+  },
+  "transformers_version": "4.15.0",
+  "use_cache": true,
+  "vocab_size": 50257
+}
+
+loading weights file https://huggingface.co/microsoft/DialoGPT-small/resolve/main/pytorch_model.bin from cache at /home/Nema/.cache/huggingface/transformers/aeb12aa1fc2f135700fcf9f8f0eec86c0649dc5ce0df86677adf0388271f33f3.1010e0ba25016a38144b58e8852f1dcc18876341e3b5728a99b3ffa11cc733cd
+/home/Nema/miniconda3/envs/torch113/lib/python3.8/site-packages/transformers/modeling_utils.py:1364: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(resolved_archive_file, map_location="cpu")
+All model checkpoint weights were used when initializing PromptGPT2forCRS.
+
+All the weights of PromptGPT2forCRS were initialized from the model checkpoint at microsoft/DialoGPT-small.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use PromptGPT2forCRS for predictions without further training.
+/home/Nema/UniCRS_GraphRAG/UniCRS/src/model_prompt.py:203: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(load_path, map_location=torch.device('cpu')), strict=False
+['edge_index', 'edge_type'] []
+  0%|          | 0/12395 [00:00<?, ?it/s]  1%|          | 117/12395 [00:00<00:10, 1164.16it/s]  2%|▏         | 234/12395 [00:00<00:11, 1073.01it/s]  3%|▎         | 402/12395 [00:00<00:08, 1332.67it/s]  5%|▍         | 562/12395 [00:00<00:08, 1432.60it/s]  6%|▌         | 707/12395 [00:00<00:08, 1392.88it/s]  7%|▋         | 867/12395 [00:00<00:07, 1460.69it/s]  8%|▊         | 1026/12395 [00:00<00:07, 1496.76it/s] 10%|▉         | 1194/12395 [00:00<00:07, 1553.38it/s] 11%|█         | 1350/12395 [00:00<00:07, 1553.69it/s] 12%|█▏        | 1531/12395 [00:01<00:06, 1629.77it/s] 14%|█▎        | 1699/12395 [00:01<00:06, 1643.09it/s] 15%|█▌        | 1884/12395 [00:01<00:06, 1705.11it/s] 17%|█▋        | 2056/12395 [00:01<00:06, 1706.27it/s] 18%|█▊        | 2227/12395 [00:01<00:06, 1680.15it/s] 19%|█▉        | 2403/12395 [00:01<00:05, 1702.83it/s] 21%|██        | 2574/12395 [00:01<00:06, 1629.70it/s] 22%|██▏       | 2739/12395 [00:01<00:05, 1635.32it/s] 23%|██▎       | 2909/12395 [00:01<00:05, 1651.13it/s] 25%|██▍       | 3092/12395 [00:01<00:05, 1702.88it/s] 26%|██▋       | 3263/12395 [00:02<00:05, 1681.22it/s] 28%|██▊       | 3432/12395 [00:02<00:05, 1633.92it/s] 29%|██▉       | 3596/12395 [00:02<00:05, 1632.62it/s] 30%|███       | 3764/12395 [00:02<00:05, 1644.67it/s] 32%|███▏      | 3929/12395 [00:02<00:05, 1632.78it/s] 33%|███▎      | 4112/12395 [00:02<00:04, 1688.34it/s] 35%|███▍      | 4282/12395 [00:02<00:04, 1676.45it/s] 36%|███▌      | 4450/12395 [00:02<00:04, 1599.48it/s] 37%|███▋      | 4611/12395 [00:02<00:04, 1584.80it/s] 38%|███▊      | 4770/12395 [00:03<00:05, 1495.35it/s] 40%|███▉      | 4937/12395 [00:03<00:04, 1542.93it/s] 41%|████▏     | 5130/12395 [00:03<00:04, 1651.19it/s] 43%|████▎     | 5303/12395 [00:03<00:04, 1672.61it/s] 44%|████▍     | 5474/12395 [00:03<00:04, 1682.47it/s] 46%|████▌     | 5643/12395 [00:03<00:04, 1675.85it/s] 47%|████▋     | 5812/12395 [00:03<00:03, 1648.89it/s] 48%|████▊     | 5992/12395 [00:03<00:03, 1691.82it/s] 50%|████▉     | 6162/12395 [00:03<00:03, 1683.74it/s] 51%|█████     | 6331/12395 [00:03<00:03, 1657.33it/s] 52%|█████▏    | 6505/12395 [00:04<00:03, 1679.88it/s] 54%|█████▍    | 6674/12395 [00:04<00:03, 1650.53it/s] 55%|█████▌    | 6850/12395 [00:04<00:03, 1681.82it/s] 57%|█████▋    | 7019/12395 [00:04<00:03, 1620.81it/s] 58%|█████▊    | 7182/12395 [00:04<00:03, 1614.18it/s] 59%|█████▉    | 7359/12395 [00:04<00:03, 1657.07it/s] 61%|██████    | 7526/12395 [00:04<00:02, 1636.04it/s] 62%|██████▏   | 7697/12395 [00:04<00:02, 1656.61it/s] 63%|██████▎   | 7863/12395 [00:04<00:02, 1645.13it/s] 65%|██████▍   | 8029/12395 [00:04<00:02, 1649.10it/s] 66%|██████▌   | 8196/12395 [00:05<00:02, 1655.18it/s] 67%|██████▋   | 8362/12395 [00:05<00:02, 1646.01it/s] 69%|██████▉   | 8527/12395 [00:05<00:02, 1641.61it/s] 70%|███████   | 8713/12395 [00:05<00:02, 1704.84it/s] 72%|███████▏  | 8884/12395 [00:05<00:02, 1683.25it/s] 73%|███████▎  | 9057/12395 [00:05<00:01, 1694.67it/s] 74%|███████▍  | 9227/12395 [00:05<00:02, 1524.51it/s] 76%|███████▌  | 9400/12395 [00:05<00:01, 1579.89it/s] 77%|███████▋  | 9573/12395 [00:05<00:01, 1615.02it/s] 79%|███████▊  | 9737/12395 [00:06<00:01, 1517.78it/s] 80%|███████▉  | 9892/12395 [00:06<00:01, 1500.26it/s] 81%|████████  | 10059/12395 [00:06<00:01, 1547.30it/s] 82%|████████▏ | 10219/12395 [00:06<00:01, 1559.69it/s] 84%|████████▎ | 10377/12395 [00:06<00:01, 1556.22it/s] 85%|████████▌ | 10554/12395 [00:06<00:01, 1618.06it/s] 86%|████████▋ | 10717/12395 [00:06<00:01, 1569.26it/s] 88%|████████▊ | 10875/12395 [00:06<00:00, 1566.20it/s] 89%|████████▉ | 11033/12395 [00:06<00:00, 1562.23it/s] 90%|█████████ | 11217/12395 [00:06<00:00, 1641.87it/s] 92%|█████████▏| 11382/12395 [00:07<00:00, 1643.98it/s] 93%|█████████▎| 11547/12395 [00:07<00:00, 1549.77it/s] 95%|█████████▍| 11718/12395 [00:07<00:00, 1593.75it/s] 96%|█████████▌| 11879/12395 [00:07<00:00, 1545.21it/s] 97%|█████████▋| 12036/12395 [00:07<00:00, 1546.80it/s] 98%|█████████▊| 12198/12395 [00:07<00:00, 1566.62it/s]100%|█████████▉| 12382/12395 [00:07<00:00, 1646.35it/s]100%|██████████| 12395/12395 [00:07<00:00, 1609.01it/s]
+/home/Nema/miniconda3/envs/torch113/lib/python3.8/site-packages/accelerate/accelerator.py:604: FutureWarning: The `use_fp16` property is deprecated and will be removed in version 1.0 of Accelerate use `Accelerator.mixed_precision == 'fp16'` instead.
+  warnings.warn(
+  0%|          | 0/179 [00:00<?, ?it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+[2025-02-07 15:26:44,511] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+/home/Nema/miniconda3/envs/torch113/lib/python3.8/site-packages/transformers/tokenization_utils_base.py:2242: UserWarning: `max_length` is ignored when `padding`=`True` and there is no truncation strategy. To pad to max length, use `padding='max_length'`.
+  warnings.warn(
+/home/Nema/miniconda3/envs/torch113/lib/python3.8/site-packages/nltk/translate/bleu_score.py:577: UserWarning: 
+The hypothesis contains 0 counts of 3-gram overlaps.
+Therefore the BLEU score evaluates to 0, independently of
+how many N-gram overlaps of lower order it contains.
+Consider using lower n-gram order or use SmoothingFunction()
+  warnings.warn(_msg)
+/home/Nema/miniconda3/envs/torch113/lib/python3.8/site-packages/nltk/translate/bleu_score.py:577: UserWarning: 
+The hypothesis contains 0 counts of 4-gram overlaps.
+Therefore the BLEU score evaluates to 0, independently of
+how many N-gram overlaps of lower order it contains.
+Consider using lower n-gram order or use SmoothingFunction()
+  warnings.warn(_msg)
+/home/Nema/miniconda3/envs/torch113/lib/python3.8/site-packages/nltk/translate/bleu_score.py:577: UserWarning: 
+The hypothesis contains 0 counts of 2-gram overlaps.
+Therefore the BLEU score evaluates to 0, independently of
+how many N-gram overlaps of lower order it contains.
+Consider using lower n-gram order or use SmoothingFunction()
+  warnings.warn(_msg)
+  1%|          | 1/179 [00:05<15:33,  5.24s/it]/home/Nema/miniconda3/envs/torch113/lib/python3.8/site-packages/transformers/tokenization_utils_base.py:2242: UserWarning: `max_length` is ignored when `padding`=`True` and there is no truncation strategy. To pad to max length, use `padding='max_length'`.
+  warnings.warn(
+  1%|          | 2/179 [00:07<09:42,  3.29s/it]  2%|▏         | 3/179 [00:09<07:57,  2.72s/it]  2%|▏         | 4/179 [00:11<07:42,  2.64s/it]  3%|▎         | 5/179 [00:13<07:08,  2.46s/it]  3%|▎         | 6/179 [00:15<05:59,  2.08s/it]  4%|▍         | 7/179 [00:17<05:58,  2.09s/it]  4%|▍         | 8/179 [00:19<06:01,  2.11s/it]  5%|▌         | 9/179 [00:21<05:33,  1.96s/it]  6%|▌         | 10/179 [00:23<05:45,  2.05s/it]  6%|▌         | 11/179 [00:25<05:54,  2.11s/it]  7%|▋         | 12/179 [00:27<05:52,  2.11s/it]  7%|▋         | 13/179 [00:29<05:17,  1.91s/it]  8%|▊         | 14/179 [00:31<05:23,  1.96s/it]  8%|▊         | 15/179 [00:33<05:22,  1.96s/it]  9%|▉         | 16/179 [00:35<05:25,  2.00s/it]  9%|▉         | 17/179 [00:36<04:58,  1.84s/it] 10%|█         | 18/179 [00:38<05:02,  1.88s/it] 11%|█         | 19/179 [00:40<05:08,  1.93s/it] 11%|█         | 20/179 [00:42<04:57,  1.87s/it] 12%|█▏        | 21/179 [00:45<05:52,  2.23s/it] 12%|█▏        | 22/179 [00:47<05:12,  1.99s/it] 13%|█▎        | 23/179 [00:49<05:21,  2.06s/it] 13%|█▎        | 24/179 [00:51<05:22,  2.08s/it] 14%|█▍        | 25/179 [00:53<05:36,  2.19s/it] 15%|█▍        | 26/179 [00:55<05:04,  1.99s/it] 15%|█▌        | 27/179 [00:57<04:57,  1.96s/it] 16%|█▌        | 28/179 [00:58<04:34,  1.82s/it] 16%|█▌        | 29/179 [01:00<04:50,  1.94s/it] 17%|█▋        | 30/179 [01:03<04:58,  2.01s/it] 17%|█▋        | 31/179 [01:05<05:02,  2.04s/it] 18%|█▊        | 32/179 [01:07<05:13,  2.13s/it] 18%|█▊        | 33/179 [01:09<04:46,  1.97s/it] 19%|█▉        | 34/179 [01:11<04:55,  2.04s/it] 20%|█▉        | 35/179 [01:12<04:23,  1.83s/it] 20%|██        | 36/179 [01:14<04:23,  1.84s/it] 21%|██        | 37/179 [01:16<04:38,  1.96s/it] 21%|██        | 38/179 [01:19<05:13,  2.22s/it] 22%|██▏       | 39/179 [01:21<04:58,  2.13s/it] 22%|██▏       | 40/179 [01:23<04:29,  1.94s/it] 23%|██▎       | 41/179 [01:25<04:35,  2.00s/it]node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180]) 23%|██▎       | 42/179 [01:27<04:33,  2.00s/it] 24%|██▍       | 43/179 [01:29<04:40,  2.06s/it] 25%|██▍       | 44/179 [01:30<04:19,  1.92s/it] 25%|██▌       | 45/179 [01:32<04:16,  1.91s/it] 26%|██▌       | 46/179 [01:34<04:17,  1.94s/it] 26%|██▋       | 47/179 [01:36<04:10,  1.90s/it] 27%|██▋       | 48/179 [01:38<04:14,  1.94s/it] 27%|██▋       | 49/179 [01:40<04:12,  1.95s/it] 28%|██▊       | 50/179 [01:42<03:53,  1.81s/it] 28%|██▊       | 51/179 [01:44<04:15,  1.99s/it] 29%|██▉       | 52/179 [01:46<04:12,  1.99s/it] 30%|██▉       | 53/179 [01:48<04:09,  1.98s/it] 30%|███       | 54/179 [01:49<03:42,  1.78s/it] 31%|███       | 55/179 [01:51<03:47,  1.83s/it] 31%|███▏      | 56/179 [01:53<03:29,  1.71s/it] 32%|███▏      | 57/179 [01:55<03:47,  1.86s/it] 32%|███▏      | 58/179 [01:57<03:47,  1.88s/it] 33%|███▎      | 59/179 [01:58<03:30,  1.76s/it] 34%|███▎      | 60/179 [02:01<03:46,  1.90s/it] 34%|███▍      | 61/179 [02:03<03:52,  1.97s/it] 35%|███▍      | 62/179 [02:05<03:47,  1.95s/it] 35%|███▌      | 63/179 [02:07<03:45,  1.95s/it] 36%|███▌      | 64/179 [02:09<03:51,  2.01s/it] 36%|███▋      | 65/179 [02:11<03:53,  2.05s/it] 37%|███▋      | 66/179 [02:13<03:50,  2.04s/it] 37%|███▋      | 67/179 [02:14<03:26,  1.85s/it] 38%|███▊      | 68/179 [02:16<03:25,  1.85s/it] 39%|███▊      | 69/179 [02:18<03:23,  1.85s/it] 39%|███▉      | 70/179 [02:19<03:06,  1.71s/it] 40%|███▉      | 71/179 [02:21<03:16,  1.82s/it] 40%|████      | 72/179 [02:23<03:02,  1.71s/it] 41%|████      | 73/179 [02:25<03:09,  1.79s/it] 41%|████▏     | 74/179 [02:27<03:23,  1.93s/it] 42%|████▏     | 75/179 [02:29<03:23,  1.96s/it] 42%|████▏     | 76/179 [02:31<03:12,  1.87s/it] 43%|████▎     | 77/179 [02:33<03:15,  1.91s/it] 44%|████▎     | 78/179 [02:35<03:12,  1.91s/it] 44%|████▍     | 79/179 [02:36<02:56,  1.77s/it] 45%|████▍     | 80/179 [02:39<03:19,  2.02s/it] 45%|████▌     | 81/179 [02:41<03:16,  2.01s/it] 46%|████▌     | 82/179 [02:43<03:23,  2.10s/it]
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180]) 46%|████▋     | 83/179 [02:45<03:20,  2.09s/it] 47%|████▋     | 84/179 [02:47<03:00,  1.90s/it] 47%|████▋     | 85/179 [02:49<03:00,  1.92s/it] 48%|████▊     | 86/179 [02:51<03:01,  1.96s/it] 49%|████▊     | 87/179 [02:53<03:18,  2.15s/it] 49%|████▉     | 88/179 [02:55<03:06,  2.04s/it] 50%|████▉     | 89/179 [02:57<03:15,  2.17s/it] 50%|█████     | 90/179 [02:59<03:09,  2.13s/it] 51%|█████     | 91/179 [03:02<03:14,  2.22s/it] 51%|█████▏    | 92/179 [03:04<03:07,  2.15s/it] 52%|█████▏    | 93/179 [03:06<03:09,  2.20s/it] 53%|█████▎    | 94/179 [03:08<02:50,  2.00s/it] 53%|█████▎    | 95/179 [03:10<02:51,  2.05s/it] 54%|█████▎    | 96/179 [03:11<02:35,  1.88s/it] 54%|█████▍    | 97/179 [03:14<02:40,  1.96s/it] 55%|█████▍    | 98/179 [03:16<02:39,  1.97s/it] 55%|█████▌    | 99/179 [03:17<02:26,  1.83s/it] 56%|█████▌    | 100/179 [03:19<02:29,  1.90s/it] 56%|█████▋    | 101/179 [03:21<02:28,  1.90s/it] 57%|█████▋    | 102/179 [03:23<02:30,  1.95s/it] 58%|█████▊    | 103/179 [03:25<02:22,  1.88s/it] 58%|█████▊    | 104/179 [03:27<02:25,  1.94s/it] 59%|█████▊    | 105/179 [03:29<02:27,  1.99s/it] 59%|█████▉    | 106/179 [03:30<02:11,  1.81s/it] 60%|█████▉    | 107/179 [03:32<02:16,  1.90s/it] 60%|██████    | 108/179 [03:34<02:15,  1.90s/it] 61%|██████    | 109/179 [03:37<02:21,  2.02s/it] 61%|██████▏   | 110/179 [03:38<02:10,  1.89s/it] 62%|██████▏   | 111/179 [03:41<02:22,  2.10s/it] 63%|██████▎   | 112/179 [03:43<02:24,  2.16s/it] 63%|██████▎   | 113/179 [03:45<02:20,  2.13s/it] 64%|██████▎   | 114/179 [03:47<02:18,  2.13s/it] 64%|██████▍   | 115/179 [03:49<02:14,  2.11s/it] 65%|██████▍   | 116/179 [03:51<02:03,  1.96s/it] 65%|██████▌   | 117/179 [03:53<02:09,  2.09s/it] 66%|██████▌   | 118/179 [03:55<02:04,  2.03s/it] 66%|██████▋   | 119/179 [03:57<01:55,  1.92s/it] 67%|██████▋   | 120/179 [03:59<01:58,  2.01s/it] 68%|██████▊   | 121/179 [04:01<01:55,  1.99s/it] 68%|██████▊   | 122/179 [04:03<01:53,  1.99s/it] 69%|██████▊   | 123/179 [04:05<01:44,  1.87s/it]
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180]) 69%|██████▉   | 124/179 [04:07<01:45,  1.92s/it] 70%|██████▉   | 125/179 [04:08<01:37,  1.80s/it] 70%|███████   | 126/179 [04:10<01:41,  1.92s/it] 71%|███████   | 127/179 [04:13<01:43,  1.98s/it] 72%|███████▏  | 128/179 [04:15<01:42,  2.00s/it] 72%|███████▏  | 129/179 [04:16<01:34,  1.88s/it] 73%|███████▎  | 130/179 [04:18<01:33,  1.91s/it] 73%|███████▎  | 131/179 [04:20<01:37,  2.02s/it] 74%|███████▎  | 132/179 [04:22<01:26,  1.85s/it] 74%|███████▍  | 133/179 [04:24<01:26,  1.88s/it] 75%|███████▍  | 134/179 [04:26<01:26,  1.93s/it] 75%|███████▌  | 135/179 [04:28<01:30,  2.05s/it] 76%|███████▌  | 136/179 [04:30<01:21,  1.89s/it] 77%|███████▋  | 137/179 [04:32<01:27,  2.08s/it] 77%|███████▋  | 138/179 [04:34<01:25,  2.09s/it] 78%|███████▊  | 139/179 [04:37<01:24,  2.11s/it] 78%|███████▊  | 140/179 [04:38<01:13,  1.89s/it] 79%|███████▉  | 141/179 [04:40<01:14,  1.97s/it] 79%|███████▉  | 142/179 [04:42<01:13,  1.97s/it] 80%|███████▉  | 143/179 [04:45<01:18,  2.18s/it] 80%|████████  | 144/179 [04:47<01:15,  2.16s/it] 81%|████████  | 145/179 [04:48<01:07,  2.00s/it] 82%|████████▏ | 146/179 [04:51<01:08,  2.07s/it] 82%|████████▏ | 147/179 [04:53<01:06,  2.06s/it] 83%|████████▎ | 148/179 [04:55<01:02,  2.03s/it] 83%|████████▎ | 149/179 [04:57<01:00,  2.03s/it] 84%|████████▍ | 150/179 [04:59<00:58,  2.02s/it] 84%|████████▍ | 151/179 [05:01<00:58,  2.09s/it] 85%|████████▍ | 152/179 [05:03<00:56,  2.09s/it] 85%|████████▌ | 153/179 [05:04<00:48,  1.88s/it] 86%|████████▌ | 154/179 [05:06<00:47,  1.91s/it] 87%|████████▋ | 155/179 [05:08<00:42,  1.79s/it] 87%|████████▋ | 156/179 [05:10<00:44,  1.92s/it] 88%|████████▊ | 157/179 [05:12<00:44,  2.03s/it] 88%|████████▊ | 158/179 [05:15<00:42,  2.04s/it] 89%|████████▉ | 159/179 [05:17<00:42,  2.11s/it] 89%|████████▉ | 160/179 [05:19<00:39,  2.09s/it] 90%|████████▉ | 161/179 [05:21<00:40,  2.25s/it] 91%|█████████ | 162/179 [05:23<00:35,  2.09s/it] 91%|█████████ | 163/179 [05:25<00:34,  2.15s/it] 92%|█████████▏| 164/179 [05:28<00:33,  2.23s/it]
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180]) 92%|█████████▏| 165/179 [05:30<00:30,  2.17s/it] 93%|█████████▎| 166/179 [05:31<00:24,  1.92s/it] 93%|█████████▎| 167/179 [05:33<00:24,  2.00s/it] 94%|█████████▍| 168/179 [05:35<00:22,  2.01s/it] 94%|█████████▍| 169/179 [05:37<00:19,  1.99s/it] 95%|█████████▍| 170/179 [05:39<00:16,  1.86s/it] 96%|█████████▌| 171/179 [05:41<00:15,  1.96s/it] 96%|█████████▌| 172/179 [05:43<00:14,  2.03s/it] 97%|█████████▋| 173/179 [05:45<00:12,  2.04s/it] 97%|█████████▋| 174/179 [05:47<00:09,  1.89s/it] 98%|█████████▊| 175/179 [05:49<00:07,  1.92s/it] 98%|█████████▊| 176/179 [05:51<00:05,  1.99s/it] 99%|█████████▉| 177/179 [05:53<00:03,  1.82s/it] 99%|█████████▉| 178/179 [05:54<00:01,  1.86s/it]100%|██████████| 179/179 [05:55<00:00,  1.35s/it]100%|██████████| 179/179 [05:55<00:00,  1.98s/it]
+2025-02-07 15:32:39.295 | INFO     | __main__:<module>:189 - {'valid/bleu@1': 0.16146540905292595, 'valid/bleu@2': 0.03713771528368952, 'valid/bleu@3': 0.013864003608318397, 'valid/bleu@4': 0.006013678324283259, 'valid/dist@1': 0.26897762176393153, 'valid/dist@2': 0.7992101799034664, 'valid/dist@3': 1.2738920579201405, 'valid/dist@4': 1.643878894251865, 'valid/item_ratio': 8.775778850372971e-05, 'valid/sent_cnt': 11395}
+
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+node_embeds device: cuda:0
+edge_index device: cuda:0
+edge_type device: cuda:0
+node_embeds shape: torch.Size([11655, 384])
+edge_index shape: torch.Size([2, 45180])
+edge_type shape: torch.Size([45180])
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)

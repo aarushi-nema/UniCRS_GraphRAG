@@ -1,0 +1,32 @@
+CUDA_VISIBLE_DEVICES=0 accelerate launch train_pre.py   --dataset redial   --tokenizer microsoft/DialoGPT-small   --model microsoft/DialoGPT-small  --num_train_epochs 5   --gradient_accumulation_steps 1   --per_device_train_batch_size 64   --per_device_eval_batch_size 128   --num_warmup_steps 1389   --max_length 256   --output_dir /home/Nema/UniCRS_GraphRAG/UniCRS/src/pretrained_prompt   --mixed_precision fp16
+
+CUDA_VISIBLE_DEVICES=0 accelerate launch train_pre.py \
+  --dataset redial \
+  --tokenizer microsoft/DialoGPT-small \
+  --model microsoft/DialoGPT-small \
+  --num_train_epochs 5 \
+  --gradient_accumulation_steps 1 \
+  --per_device_train_batch_size 64 \
+  --per_device_eval_batch_size 128 \
+  --num_warmup_steps 1389 \
+  --max_length 256 \
+  --output_dir /home/Nema/UniCRS_GraphRAG/UniCRS/src/pretrained_prompt \
+  --mixed_precision fp16
+
+CUDA_VISIBLE_DEVICES=0 accelerate launch train_conv.py \
+    --dataset redial \
+    --tokenizer microsoft/DialoGPT-small \
+    --model microsoft/DialoGPT-small \
+    --n_prefix_conv 20 \
+    --prompt_encoder /home/Nema/UniCRS_GraphRAG/UniCRS/src/pretrained_prompt/best \
+    --num_train_epochs 10 \
+    --gradient_accumulation_steps 1 \
+    --ignore_pad_token_for_loss \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 16 \
+    --num_warmup_steps 6345 \
+    --context_max_length 200 \
+    --resp_max_length 183 \
+    --entity_max_length 32 \
+    --learning_rate 1e-4 \
+    --output_dir /home/Nema/UniCRS_GraphRAG/UniCRS/src/conversation_prompt

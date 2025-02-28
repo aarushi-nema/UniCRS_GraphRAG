@@ -1,0 +1,39 @@
+2025-01-30 22:27:51.811 | INFO     | __main__:<module>:74 - {'seed': 42, 'output_dir': '/home/Nema/UniCRS_GraphRAG/UniCRS/src/pretrained_prompt', 'debug': False, 'dataset': 'redial', 'num_workers': 0, 'max_length': 256, 'entity_max_length': None, 'tokenizer': 'microsoft/DialoGPT-small', 'model': 'microsoft/DialoGPT-small', 'num_bases': 8, 'num_train_epochs': 5, 'max_train_steps': None, 'per_device_train_batch_size': 64, 'per_device_eval_batch_size': 128, 'gradient_accumulation_steps': 1, 'learning_rate': 1e-05, 'weight_decay': 0.01, 'max_grad_norm': None, 'num_warmup_steps': 1389, 'mixed_precision': 'fp16', 'use_wandb': False, 'entity': None, 'project': None, 'name': None, 'log_all': False}
+2025-01-30 22:27:51.812 | INFO     | __main__:<module>:75 - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: fp16
+
+2025-01-30 23:01:08.611 | INFO     | __main__:<module>:268 - {'valid/recall@1': 0.09781352340589482, 'valid/recall@10': 0.304276632633404, 'valid/recall@50': 0.5181564245810056, 'valid/ndcg@1': 0.09781352340589482, 'valid/ndcg@10': 0.18805841700554446, 'valid/ndcg@50': 0.23587417676025815, 'valid/mrr@1': 0.09781352340589482, 'valid/mrr@10': 0.15248585574040407, 'valid/mrr@50': 0.16298652462269433, 'valid/loss': 6.041645055899591, 'epoch': 0}
+2025-01-30 23:01:08.842 | INFO     | __main__:<module>:277 - new best model with loss
+2025-01-30 23:04:03.343 | INFO     | __main__:<module>:306 - {'test/recall@1': 0.08542789313034631, 'test/recall@10': 0.30907789124618457, 'test/recall@50': 0.5373252439989449, 'test/ndcg@1': 0.08542789313034631, 'test/ndcg@10': 0.18231424962081244, 'test/ndcg@50': 0.2335056543988111, 'test/mrr@1': 0.08542789313034631, 'test/mrr@10': 0.1435664083108019, 'test/mrr@50': 0.1548842403413159, 'test/loss': 5.949071751191066, 'epoch': 0}
+2025-01-30 23:35:54.566 | INFO     | __main__:<module>:268 - {'valid/recall@1': 0.12382007320362165, 'valid/recall@10': 0.34497206703910616, 'valid/recall@50': 0.5366981313812368, 'valid/ndcg@1': 0.12382007320362165, 'valid/ndcg@10': 0.2223408331050737, 'valid/ndcg@50': 0.26520035239777984, 'valid/mrr@1': 0.12382007320362165, 'valid/mrr@10': 0.18459831977069688, 'valid/mrr@50': 0.19400377738363273, 'valid/loss': 5.795987199420578, 'epoch': 1}
+2025-01-30 23:35:54.886 | INFO     | __main__:<module>:277 - new best model with loss
+2025-01-30 23:38:46.575 | INFO     | __main__:<module>:306 - {'test/recall@1': 0.11195689037947017, 'test/recall@10': 0.3495873685797189, 'test/recall@50': 0.5539435505143762, 'test/ndcg@1': 0.11195689037947017, 'test/ndcg@10': 0.21829323797904812, 'test/ndcg@50': 0.26401352651486604, 'test/mrr@1': 0.11195689037947017, 'test/mrr@10': 0.1778083798682029, 'test/mrr@50': 0.18786452273594414, 'test/loss': 5.714483323005529, 'epoch': 1}
+2025-01-31 00:10:33.264 | INFO     | __main__:<module>:268 - {'valid/recall@1': 0.19085917934887306, 'valid/recall@10': 0.4083028318243113, 'valid/recall@50': 0.5681949528029282, 'valid/ndcg@1': 0.19085917934887306, 'valid/ndcg@10': 0.29135921377594637, 'valid/ndcg@50': 0.32689270360509776, 'valid/mrr@1': 0.19085917934887306, 'valid/mrr@10': 0.2549388505571542, 'valid/mrr@50': 0.2626584633033736, 'valid/loss': 5.447742327590661, 'epoch': 2}
+2025-01-31 00:10:33.583 | INFO     | __main__:<module>:277 - new best model with loss
+2025-01-31 00:13:19.068 | INFO     | __main__:<module>:306 - {'test/recall@1': 0.18901910540000755, 'test/recall@10': 0.41319666880204997, 'test/recall@50': 0.5762897087085955, 'test/ndcg@1': 0.18901910540000755, 'test/ndcg@10': 0.2928442186852319, 'test/ndcg@50': 0.3291626873563327, 'test/mrr@1': 0.18901910540000755, 'test/mrr@10': 0.25540770978374533, 'test/mrr@50': 0.26333568829017034, 'test/loss': 5.384894859332305, 'epoch': 2}
+2025-01-31 00:45:04.794 | INFO     | __main__:<module>:268 - {'valid/recall@1': 0.2387304950876517, 'valid/recall@10': 0.4559815064534772, 'valid/recall@50': 0.5991620111731844, 'valid/ndcg@1': 0.2387304950876517, 'valid/ndcg@10': 0.3427853364747881, 'valid/ndcg@50': 0.374257772052892, 'valid/mrr@1': 0.2387304950876517, 'valid/mrr@10': 0.3071567489103737, 'valid/mrr@50': 0.31383141532520226, 'valid/loss': 5.17005854296538, 'epoch': 3}
+2025-01-31 00:45:05.129 | INFO     | __main__:<module>:277 - new best model with loss
+2025-01-31 00:47:45.818 | INFO     | __main__:<module>:306 - {'test/recall@1': 0.23936390699777668, 'test/recall@10': 0.4606398613256962, 'test/recall@50': 0.6120887817010212, 'test/ndcg@1': 0.23936390699777668, 'test/ndcg@10': 0.34594431242227835, 'test/ndcg@50': 0.3793265431873422, 'test/mrr@1': 0.23936390699777668, 'test/mrr@10': 0.3097591702740513, 'test/mrr@50': 0.3168874104434375, 'test/loss': 5.101442635059357, 'epoch': 3}
+2025-01-31 01:19:29.042 | INFO     | __main__:<module>:268 - {'valid/recall@1': 0.24860335195530725, 'valid/recall@10': 0.47158543633211325, 'valid/recall@50': 0.6103833558081294, 'valid/ndcg@1': 0.24860335195530725, 'valid/ndcg@10': 0.35646793466155363, 'valid/ndcg@50': 0.38702294987719127, 'valid/mrr@1': 0.24860335195530725, 'valid/mrr@10': 0.32010779530527594, 'valid/mrr@50': 0.32660395358252264, 'valid/loss': 5.076656950032053, 'epoch': 4}
+2025-01-31 01:19:29.372 | INFO     | __main__:<module>:277 - new best model with loss
+2025-01-31 01:22:08.728 | INFO     | __main__:<module>:306 - {'test/recall@1': 0.24833251686324753, 'test/recall@10': 0.4777480498926028, 'test/recall@50': 0.6251648641519388, 'test/ndcg@1': 0.24833251686324753, 'test/ndcg@10': 0.3598390116276331, 'test/ndcg@50': 0.3922614975081961, 'test/mrr@1': 0.24833251686324753, 'test/mrr@10': 0.3225290764427968, 'test/mrr@50': 0.3294080331824434, 'test/loss': 5.010466776215113, 'epoch': 4}
+2025-01-31 01:22:08.952 | INFO     | __main__:<module>:315 - save final model
+
+'test/recall@1': 0.24833251686324753, 
+'test/recall@10': 0.4777480498926028, 
+'test/recall@50': 0.6251648641519388, 
+
+'test/ndcg@1': 0.24833251686324753, 
+'test/ndcg@10': 0.3598390116276331, 
+'test/ndcg@50': 0.3922614975081961, 
+
+'test/mrr@1': 0.24833251686324753, 
+'test/mrr@10': 0.3225290764427968, 
+'test/mrr@50': 0.3294080331824434, 
+
+'test/loss': 5.010466776215113,
